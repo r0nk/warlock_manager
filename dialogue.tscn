@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://ofheitosr3ma"]
+
+[ext_resource type="FontFile" uid="uid://d3yey3a5p6ml1" path="res://m5x7.ttf" id="1_oq8ef"]
+
+[sub_resource type="Theme" id="Theme_hggib"]
+default_font = ExtResource("1_oq8ef")
+default_font_size = 48
+
+[sub_resource type="Theme" id="Theme_17i1g"]
+default_font = ExtResource("1_oq8ef")
+default_font_size = 60
+
+[node name="dialogue" type="Node2D"]
+position = Vector2(20, 317)
+
+[node name="option_one" type="Button" parent="."]
+offset_left = 289.0
+offset_top = -251.0
+offset_right = 426.0
+offset_bottom = -205.0
+theme = SubResource("Theme_hggib")
+text = "Option 1
+"
+
+[node name="ontion_two" type="Button" parent="."]
+offset_left = 290.0
+offset_top = -189.0
+offset_right = 427.0
+offset_bottom = -143.0
+theme = SubResource("Theme_hggib")
+text = "Option 1
+"
+
+[node name="option_three" type="Button" parent="."]
+offset_left = 289.0
+offset_top = -126.0
+offset_right = 426.0
+offset_bottom = -80.0
+theme = SubResource("Theme_hggib")
+text = "Option 1
+"
+
+[node name="background" type="Polygon2D" parent="."]
+z_index = -5
+position = Vector2(-20, -317)
+polygon = PackedVector2Array(-46, -15, -61, 543, 750, 542, 689, -36, -50, -19)
+
+[node name="words" type="RichTextLabel" parent="."]
+offset_left = 3.0
+offset_top = 30.0
+offset_right = 612.0
+offset_bottom = 158.0
+theme = SubResource("Theme_17i1g")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Hello world! This is a test string for dialogue."
+
+[node name="name" type="RichTextLabel" parent="."]
+offset_right = 101.0
+offset_bottom = 34.0
+theme = SubResource("Theme_17i1g")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+text = "You."
+
+[node name="underline" type="Polygon2D" parent="name"]
+position = Vector2(-27, -314)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(25, 334, 128, 335, 42, 345)

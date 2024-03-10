@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://8y7ich5t557t"]
+
+[ext_resource type="Script" path="res://city.gd" id="1_ugjd8"]
+[ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_erbhu"]
+[ext_resource type="Script" path="res://farm.gd" id="3_r5dgd"]
+
+[node name="overmap" type="Node2D"]
+
+[node name="city" type="Node2D" parent="."]
+script = ExtResource("1_ugjd8")
+
+[node name="label" type="RichTextLabel" parent="city"]
+offset_left = 176.0
+offset_top = 256.0
+offset_right = 296.0
+offset_bottom = 296.0
+theme = ExtResource("2_erbhu")
+text = "holtburg"
+
+[node name="food_supply" type="RichTextLabel" parent="city"]
+offset_left = 256.0
+offset_top = 88.0
+offset_right = 376.0
+offset_bottom = 128.0
+theme = ExtResource("2_erbhu")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "500"
+
+[node name="Polygon2D" type="Polygon2D" parent="city"]
+color = Color(0, 1, 1, 1)
+polygon = PackedVector2Array(168, 160, 232, 240, 288, 168, 216, 88)
+
+[node name="farm" type="Node2D" parent="city"]
+position = Vector2(256, 88)
+script = ExtResource("3_r5dgd")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+points = PackedVector2Array(224, 168, 776, 176)

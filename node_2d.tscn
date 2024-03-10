@@ -1,0 +1,140 @@
+[gd_scene load_steps=19 format=3 uid="uid://gmogjwuqusl5"]
+
+[ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="1_ncbcn"]
+[ext_resource type="Script" path="res://unit.gd" id="2_2q4tv"]
+[ext_resource type="Script" path="res://enemy.gd" id="2_aets7"]
+[ext_resource type="Script" path="res://wallet.gd" id="2_agmmb"]
+[ext_resource type="PackedScene" uid="uid://b7fg3375t24au" path="res://health.tscn" id="2_hriga"]
+[ext_resource type="Script" path="res://turn_clock.gd" id="3_t76tc"]
+
+[sub_resource type="Gradient" id="Gradient_0e8mh"]
+colors = PackedColorArray(0, 0, 0, 1, 0.241156, 0.241156, 0.241156, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xkhmm"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nrk3l"]
+width = 1024
+height = 1024
+color_ramp = SubResource("Gradient_0e8mh")
+noise = SubResource("FastNoiseLite_xkhmm")
+
+[sub_resource type="Gradient" id="Gradient_1t6ja"]
+colors = PackedColorArray(0.177322, 0.134734, 0.0995614, 1, 0.338909, 0.209476, 0.0112086, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_etnqp"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r1l5j"]
+width = 1024
+height = 1024
+color_ramp = SubResource("Gradient_1t6ja")
+noise = SubResource("FastNoiseLite_etnqp")
+
+[sub_resource type="Gradient" id="Gradient_eu566"]
+colors = PackedColorArray(0, 0, 0, 1, 0.18359, 0.18359, 0.18359, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kgbcx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_shmn6"]
+width = 100
+height = 10
+color_ramp = SubResource("Gradient_eu566")
+noise = SubResource("FastNoiseLite_kgbcx")
+
+[sub_resource type="Gradient" id="Gradient_3j3du"]
+offsets = PackedFloat32Array(0.0141844, 1)
+colors = PackedColorArray(0.572549, 0, 0, 1, 0.996946, 3.44135e-06, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_mkcw1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d2s07"]
+width = 100
+height = 10
+color_ramp = SubResource("Gradient_3j3du")
+noise = SubResource("FastNoiseLite_mkcw1")
+
+[node name="main" type="Node2D"]
+
+[node name="background" type="Polygon2D" parent="."]
+position = Vector2(-28.2353, -29.1331)
+scale = Vector2(1.17647, 1.04913)
+texture = SubResource("NoiseTexture2D_nrk3l")
+polygon = PackedVector2Array(-44, -29, -28, 526, 687, 593, 676, -38)
+
+[node name="floor" type="Polygon2D" parent="."]
+position = Vector2(-29, 306)
+scale = Vector2(1.17647, 0.380349)
+texture = SubResource("NoiseTexture2D_r1l5j")
+polygon = PackedVector2Array(-44, -29, -28, 526, 687, 593, 676, -38)
+
+[node name="wallet" type="RichTextLabel" parent="."]
+offset_left = 86.0
+offset_top = 44.0
+offset_right = 257.0
+offset_bottom = 95.0
+theme = ExtResource("1_ncbcn")
+text = "$100
+"
+script = ExtResource("2_agmmb")
+
+[node name="enemy" type="Node2D" parent="."]
+position = Vector2(560, 186)
+script = ExtResource("2_aets7")
+
+[node name="model" type="Polygon2D" parent="enemy"]
+color = Color(1, 0, 0, 1)
+offset = Vector2(-560, -186)
+polygon = PackedVector2Array(486, 392, 504, 151, 600, 156, 602, 407)
+
+[node name="health" parent="enemy" instance=ExtResource("2_hriga")]
+position = Vector2(-272, -290)
+dodge_chance = 0.1
+free_on_death = false
+shield = 1
+
+[node name="player" type="Node2D" parent="."]
+position = Vector2(136, 231)
+script = ExtResource("2_2q4tv")
+
+[node name="health" type="TextureProgressBar" parent="player"]
+offset_left = -60.0
+offset_top = -69.0
+offset_right = 40.0
+offset_bottom = -29.0
+pivot_offset = Vector2(1, 0)
+value = 100.0
+texture_under = SubResource("NoiseTexture2D_shmn6")
+texture_progress = SubResource("NoiseTexture2D_d2s07")
+
+[node name="model" type="Node2D" parent="player"]
+
+[node name="head" type="Polygon2D" parent="player/model"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-38, 63, -49, 24, 3, 33, -2, 70, -27, 73)
+
+[node name="Polygon2D" type="Polygon2D" parent="player/model/head"]
+position = Vector2(-5, 1)
+polygon = PackedVector2Array(-13, 39, -5, 49, -1, 39)
+
+[node name="robe" type="Polygon2D" parent="player/model"]
+color = Color(0.505882, 0.00392157, 0.917647, 1)
+polygon = PackedVector2Array(-58, 174, -35, 93, -61, 58, -19, 63, -11, 92, 26, 180)
+
+[node name="hat" type="Polygon2D" parent="player/model/robe"]
+z_index = 3
+color = Color(0.678431, 0, 0.678431, 1)
+polygon = PackedVector2Array(-79, 28, -54, 16, -30, -44, -5, 19, 22, 42)
+
+[node name="turn_clock" type="Timer" parent="."]
+autostart = true
+script = ExtResource("3_t76tc")
+
+[node name="progress" type="ProgressBar" parent="turn_clock"]
+offset_left = 296.0
+offset_right = 349.0
+offset_bottom = 57.0
+fill_mode = 3
+show_percentage = false
+
+[connection signal="timeout" from="turn_clock" to="turn_clock" method="timeout"]
+
+[editable path="enemy/health"]
