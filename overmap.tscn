@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://8y7ich5t557t"]
+[gd_scene load_steps=5 format=3 uid="uid://8y7ich5t557t"]
 
 [ext_resource type="Script" path="res://city.gd" id="1_ugjd8"]
 [ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_erbhu"]
 [ext_resource type="Script" path="res://farm.gd" id="3_r5dgd"]
+[ext_resource type="Script" path="res://market.gd" id="4_cyind"]
 
 [node name="overmap" type="Node2D"]
 
@@ -33,6 +34,9 @@ polygon = PackedVector2Array(168, 160, 232, 240, 288, 168, 216, 88)
 [node name="farm" type="Node2D" parent="city"]
 position = Vector2(256, 88)
 script = ExtResource("3_r5dgd")
+
+[node name="market" type="Node2D" parent="city"]
+script = ExtResource("4_cyind")
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
