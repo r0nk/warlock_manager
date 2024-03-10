@@ -1,9 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://8y7ich5t557t"]
+[gd_scene load_steps=8 format=3 uid="uid://8y7ich5t557t"]
 
 [ext_resource type="Script" path="res://city.gd" id="1_ugjd8"]
 [ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_erbhu"]
 [ext_resource type="Script" path="res://farm.gd" id="3_r5dgd"]
 [ext_resource type="Script" path="res://market.gd" id="4_cyind"]
+[ext_resource type="Script" path="res://market_order.gd" id="5_2r4b3"]
+
+[sub_resource type="Resource" id="Resource_r6rc5"]
+script = ExtResource("5_2r4b3")
+type = "BUY"
+item_id = "wheat"
+price = 60.0
+volume = 5.0
+entry_date = 0
+duration = 20
+
+[sub_resource type="Resource" id="Resource_yyxhv"]
+script = ExtResource("5_2r4b3")
+type = "SELL"
+item_id = "wheat"
+price = 50.0
+volume = 0.0
+entry_date = 1
+duration = 0
 
 [node name="overmap" type="Node2D"]
 
@@ -37,6 +56,7 @@ script = ExtResource("3_r5dgd")
 
 [node name="market" type="Node2D" parent="city"]
 script = ExtResource("4_cyind")
+orders = Array[ExtResource("5_2r4b3")]([SubResource("Resource_r6rc5"), SubResource("Resource_yyxhv")])
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
