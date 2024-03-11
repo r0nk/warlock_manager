@@ -6,7 +6,7 @@ var turn_timer=max_turn_timer
 
 var supply = 0
 
-var revenue
+var revenue = 0
 
 func sell(amount):
 	if(amount>supply):
