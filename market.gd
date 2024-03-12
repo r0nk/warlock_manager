@@ -14,13 +14,19 @@ func match_order_pair(a,b):
 			return true
 	return false
 
+func item_from_order(order):
+	var item = Item_resource.new()
+	item.type=order.item_id
+	item.quantity=order.volume
+	item.weight=1
+	return item
+
 func close_order(order):
 	var trader = get_tree().get_nodes_in_group("escrow_"+order.uuid)[0]
 	if order.type == "SELL":
 		trader.revenue+=order.price
 	elif order.type == "BUY":
-		print("TODO: BUY");
-		#trader.inventory[order.item_id]=order.volume
+		trader.get_node("inventory").add_item(item_from_order(order))
 
 	orders.erase(order)
 	trader.remove_from_group("escrow_"+order.uuid)
@@ -58,6 +64,5 @@ func _process(delta):
 	turn()
 
 func _ready():
-	print(uuid_util.v4())
 	add_order($"../farm","SELL","wheat",10,10,20)
 	add_order($".","BUY","wheat",20,10,20)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq8sjdhsjot1j"]
+
+[ext_resource type="Script" path="res://inventory.gd" id="1_w1i6d"]
+
+[node name="inventory" type="Node2D"]
+position = Vector2(256, 88)
+script = ExtResource("1_w1i6d")
