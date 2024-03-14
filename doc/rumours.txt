@@ -1,0 +1,5 @@
+rumours work to provide estimates for people to evaluate how common triggers occur and the reputation of contracts.
+
+also provide intelligence.
+
+and warlocks can make rumours.

@@ -21,10 +21,16 @@ func item_from_order(order):
 	item.weight=1
 	return item
 
+func pay_taxes(price):
+	var g = $"../government"
+	var tax = g.market_tax_rate*price
+	g.revenue+=tax
+	return tax
+
 func close_order(order):
 	var trader = get_tree().get_nodes_in_group("escrow_"+order.uuid)[0]
 	if order.type == "SELL":
-		trader.revenue+=order.price
+		trader.revenue+=order.price-pay_taxes(order.price)
 	elif order.type == "BUY":
 		trader.get_node("inventory").add_item(item_from_order(order))
 

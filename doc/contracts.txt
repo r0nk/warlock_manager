@@ -1,0 +1,23 @@
+triggers, conditionals, effects
+
+triggers
+ * on turn change
+ * on turn death
+ * on combat
+ * pretty much any signal
+
+conditionals
+ * money is more then x
+ * warlock party is alive/dead
+ * turn is odd
+
+Effects
+ * warlock is revived
+ * Warlock is given eldrich blast spell
+ * Warlocks soul is forfiet
+ * Warlock must sell
+ * patron is given an option
+
+in terms of valuation, possible black scholes model for options that the contracts gives?
+
+value = how oftern the trigger occurs * conditional chance * value of effect
