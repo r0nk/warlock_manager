@@ -1,0 +1,5 @@
+character/spawning_death	60
+character/contract_evaulation	60
+social/networks			60
+contract/invitation		60
+contract/implementation		60

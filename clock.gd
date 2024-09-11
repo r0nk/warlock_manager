@@ -2,11 +2,13 @@ extends Node2D
 
 var turn = 0
 
-var rate = 1
+@export var rate = 1.0
 
-var counter=0
+var ttimer=0
 
 var paused=false
+
+signal turned
 
 func toggle_pause():
 	paused=!paused
@@ -16,12 +18,15 @@ func toggle_pause():
 		$pause_button.text="Pause"
 
 func turn_all_turnables():
+	turn+=1
+	$turn_label.text="Turn: "+str(turn)
 	get_tree().call_group("turnable","turn")
+	turned.emit()
 
 func _process(delta):
 	if(paused):
 		return
-	counter+=delta
-	if(counter>rate):
-		counter=0
+	ttimer+=delta
+	if(ttimer>rate):
+		ttimer=0
 		turn_all_turnables()

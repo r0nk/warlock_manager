@@ -1,6 +1,9 @@
 extends Node2D
 
-@export var contracts:Array[Contract] = []
+var income = 5
+var cash = 100
+
+signal got_income
 
 var male_names= [
 	"Marcus",
@@ -18,13 +21,18 @@ var last_names= [
 
 var full_name = ""
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func generate_character():
 	full_name=male_names.pick_random()+" "+last_names.pick_random()
-	print(full_name)
-	pass # Replace with function body.
+	$portrait/eyes.frame=randi()%$portrait/eyes.hframes
+	$portrait/body.frame=randi()%$portrait/body.hframes
+	print(full_name," generated")
 
+func _ready():
+	generate_character()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+func turn():
+	pass
+
 func _process(delta):
+	$cash.text=str(cash)
 	pass

@@ -1,7 +1,8 @@
 extends Node2D
 
 @export var rate = 10
-@export var max_turn_timer = 20
+@export var chance=5
+@export var max_turn_timer = 4
 var turn_timer=max_turn_timer
 
 var supply = 0
@@ -17,7 +18,8 @@ func sell(amount):
 	supply-=amount
 
 func harvest():
-	supply+=rate
+	var c=chance
+	supply+=rate+((randi()%(c*2))-c)
 
 func turn():
 	if(turn_timer<=0):
