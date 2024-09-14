@@ -14,6 +14,7 @@ var male_names= [
 	"Darius",
 	"Calvor",
 	"Hendrick",
+	"Jhonny",
 	]
 
 var female_names= [
@@ -23,6 +24,7 @@ var female_names= [
 	"Thalassa",
 	"Seraphine",
 	"Spella",
+	"Luna",
 	]
 
 var last_names= [
@@ -31,6 +33,13 @@ var last_names= [
 	"Hail",
 	"Soul",
 	"Potato",
+	"Tomin",
+	"Salt",
+	"Blaze",
+	"Hex",
+	"Toad",
+	"Vigil",
+	"Danger",
 	]
 
 var full_name = ""
@@ -44,8 +53,15 @@ func generate_character():
 func _ready():
 	generate_character()
 
+func socialize():
+	var people = get_tree().get_nodes_in_group("person")
+	for person in people:
+		if person == $".": #don't talk to yourself.
+			continue
+		$emotions.small_talk(person)
+
 func turn():
-	pass
+	socialize()
 
 func open_viewer():
 	$"../character_viewer".target=$"."
@@ -53,4 +69,3 @@ func open_viewer():
 
 func _process(delta):
 	$cash.text=str(cash)
-	pass

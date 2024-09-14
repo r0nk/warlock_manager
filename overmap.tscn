@@ -117,14 +117,6 @@ z_index = -1
 texture = SubResource("ImageTexture_ykpqt")
 hframes = 3
 
-[node name="Button" type="Button" parent="typewriter/portrait"]
-show_behind_parent = true
-z_index = -2
-offset_left = -17.5
-offset_top = -15.0
-offset_right = 10.5
-offset_bottom = 17.0
-
 [node name="background" type="Polygon2D" parent="typewriter"]
 z_index = 3
 color = Color(0.341176, 0.329412, 0, 1)
@@ -177,7 +169,6 @@ popup/item_1/id = 1
 script = ExtResource("1_1qtdn")
 
 [node name="character_viewer" type="Node2D" parent="."]
-visible = false
 script = ExtResource("8_cy8eg")
 
 [node name="panel" type="Panel" parent="character_viewer"]
@@ -210,6 +201,18 @@ text = "Contract
 "
 icon = ExtResource("3_ollwg")
 
+[node name="feelings_label" type="RichTextLabel" parent="character_viewer/panel"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 143.0
+offset_right = 440.0
+offset_bottom = 352.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "Feelings label.	[color=\"red\"] 0 [/color] 1 2 3
+Joe smith "
+
 [node name="portrait" type="Node2D" parent="character_viewer"]
 z_index = 5
 position = Vector2(116, 91)
@@ -241,18 +244,35 @@ theme = ExtResource("2_erbhu")
 item_count = 1
 
 [node name="city" parent="." instance=ExtResource("8_753wa")]
+visible = false
 
 [node name="alice" parent="." instance=ExtResource("14_h4fsi")]
 
 [node name="bob" parent="." instance=ExtResource("14_h4fsi")]
-position = Vector2(41, 153)
+position = Vector2(260, 113)
 
-[node name="road" type="Line2D" parent="."]
-z_index = -1
-points = PackedVector2Array(224, 168, 776, 176)
+[node name="bob2" parent="." instance=ExtResource("14_h4fsi")]
+position = Vector2(490, 123)
+
+[node name="bob3" parent="." instance=ExtResource("14_h4fsi")]
+position = Vector2(41, 227)
+
+[node name="bob4" parent="." instance=ExtResource("14_h4fsi")]
+position = Vector2(54, 381)
+
+[node name="bob5" parent="." instance=ExtResource("14_h4fsi")]
+position = Vector2(267, 381)
+
+[node name="bob6" parent="." instance=ExtResource("14_h4fsi")]
+position = Vector2(489, 373)
+
+[node name="bob7" parent="." instance=ExtResource("14_h4fsi")]
+position = Vector2(491, 234)
 
 [connection signal="pressed" from="clock/pause_button" to="clock" method="toggle_pause"]
 [connection signal="pressed" from="typewriter/sign" to="typewriter" method="enact"]
 [connection signal="pressed" from="typewriter/trigger" to="typewriter/trigger" method="pressed"]
 [connection signal="pressed" from="typewriter/effect" to="typewriter/effect" method="pressed"]
 [connection signal="pressed" from="character_viewer/panel/contract_button" to="character_viewer" method="contract_button_pressed"]
+
+[editable path="alice"]

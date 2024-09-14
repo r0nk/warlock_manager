@@ -55,6 +55,5 @@ text = "500"
 
 [node name="emotions" type="Node2D" parent="."]
 script = ExtResource("5_j5hd2")
-relationships = null
 
 [connection signal="pressed" from="portrait/Button" to="." method="open_viewer"]
