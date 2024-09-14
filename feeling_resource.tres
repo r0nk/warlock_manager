@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Feeling" load_steps=2 format=3 uid="uid://bsm6acdghtsdh"]
+
+[ext_resource type="Script" path="res://feeling_resource.gd" id="1_j452q"]
+
+[resource]
+script = ExtResource("1_j452q")
+terror = 0
+vigilance = 0
+ecstasy = 0
+admiration = 0

@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://st3d6fnc3bx"]
+
+[ext_resource type="Script" path="res://city.gd" id="1_qaxin"]
+[ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_see58"]
+[ext_resource type="Script" path="res://government.gd" id="3_8w4wp"]
+[ext_resource type="Script" path="res://farm.gd" id="4_pvr3x"]
+[ext_resource type="Script" path="res://market.gd" id="5_ehh74"]
+[ext_resource type="PackedScene" uid="uid://bq8sjdhsjot1j" path="res://inventory.tscn" id="6_upkan"]
+
+[node name="city" type="Node2D" groups=["turnable"]]
+script = ExtResource("1_qaxin")
+
+[node name="label" type="RichTextLabel" parent="."]
+offset_left = 176.0
+offset_top = 256.0
+offset_right = 296.0
+offset_bottom = 296.0
+theme = ExtResource("2_see58")
+text = "holtburg"
+
+[node name="food_supply" type="RichTextLabel" parent="."]
+offset_left = 256.0
+offset_top = 88.0
+offset_right = 376.0
+offset_bottom = 128.0
+theme = ExtResource("2_see58")
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+text = "500"
+
+[node name="population" type="RichTextLabel" parent="."]
+offset_left = 256.0
+offset_top = 108.0
+offset_right = 376.0
+offset_bottom = 148.0
+theme = ExtResource("2_see58")
+theme_override_colors/default_color = Color(0, 0, 0.937255, 1)
+text = "500"
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 1, 1, 1)
+polygon = PackedVector2Array(168, 160, 232, 240, 288, 168, 216, 88)
+
+[node name="government" type="Node2D" parent="."]
+position = Vector2(256, 88)
+script = ExtResource("3_8w4wp")
+
+[node name="farm" type="Node2D" parent="."]
+position = Vector2(256, 88)
+script = ExtResource("4_pvr3x")
+
+[node name="market" type="Node2D" parent="."]
+script = ExtResource("5_ehh74")
+
+[node name="inventory" parent="market" instance=ExtResource("6_upkan")]

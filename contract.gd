@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var contract: Contract
+@export var contract: Section
 
 signal paid
 

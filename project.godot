@@ -23,6 +23,7 @@ window/size/viewport_height=480
 [global_group]
 
 turnable=""
+person=""
 
 [rendering]
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://7yp7xi5fnbkt"]
+
+[ext_resource type="Script" path="res://exit_button.gd" id="1_l4ewp"]
+
+[node name="exit_button" type="Button"]
+z_index = 2
+offset_left = 550.0
+offset_top = 65.0
+offset_right = 568.0
+offset_bottom = 96.0
+text = "X"
+script = ExtResource("1_l4ewp")
+
+[connection signal="pressed" from="." to="." method="press"]

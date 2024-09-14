@@ -10,6 +10,19 @@ var male_names= [
 	"David",
 	"Chris",
 	"Paedrick",
+	"Jeston",
+	"Darius",
+	"Calvor",
+	"Hendrick",
+	]
+
+var female_names= [
+	"Lenore",
+	"Rhiannon",
+	"Delphine",
+	"Thalassa",
+	"Seraphine",
+	"Spella",
 	]
 
 var last_names= [
@@ -17,6 +30,7 @@ var last_names= [
 	"Lock",
 	"Hail",
 	"Soul",
+	"Potato",
 	]
 
 var full_name = ""
@@ -32,6 +46,10 @@ func _ready():
 
 func turn():
 	pass
+
+func open_viewer():
+	$"../character_viewer".target=$"."
+	$"../character_viewer".visible=true
 
 func _process(delta):
 	$cash.text=str(cash)
