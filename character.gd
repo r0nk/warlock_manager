@@ -60,8 +60,17 @@ func socialize():
 			continue
 		$emotions.small_talk(person)
 
+func scavenge():
+	cash+=1+(randi()%income)
+	got_income.emit()
+
+
+func think():
+	var actions =[socialize,scavenge]
+	return actions.pick_random()
+
 func turn():
-	socialize()
+	think().call()
 
 func open_viewer():
 	$"../character_viewer".target=$"."
