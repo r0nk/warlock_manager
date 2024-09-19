@@ -4,4 +4,4 @@ scenes:
 	@find . -type f -name '*.tscn' | grep -v addons | fzf
 
 script:
-	@find . -type f -name '*.gd' | grep -v addons | fzf
+	@find . -type f -name '*.gd'   | grep -v addons | fzf
