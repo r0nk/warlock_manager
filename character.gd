@@ -73,6 +73,9 @@ func think():
 	var actions =[socialize,scavenge]
 	return actions.pick_random()
 
+func evaluate(section: Section):
+	return randi()%100 - 50
+
 #TODO move this out to a minos class
 func judgement():
 	$"../resources".souls+=1

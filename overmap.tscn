@@ -82,7 +82,6 @@ text = "Turn: 0"
 
 [node name="typewriter" type="Node2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(109, 101)
 script = ExtResource("2_pptxu")
 section = SubResource("Resource_08u6x")
@@ -133,6 +132,18 @@ text = "WHENCEFORTH;
 
                                                 -->
 "
+
+[node name="evaluation" type="RichTextLabel" parent="typewriter"]
+z_index = 3
+offset_left = 284.0
+offset_top = 214.0
+offset_right = 394.0
+offset_bottom = 253.0
+mouse_filter = 2
+theme = ExtResource("2_erbhu")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "+20"
 
 [node name="sign" type="Button" parent="typewriter"]
 z_index = 5

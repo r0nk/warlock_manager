@@ -11,6 +11,9 @@ func enact():
 	if ! second_party:
 		print("ERROR, no party to enact to.")
 		return
+	if ( second_party.evaluate(section) < 0):
+		print("The second party does not agree");
+		return
 	var contract = contract_scene.instantiate()
 	second_party.add_child(contract)
 	if(section.trigger=="income" and section.effect=="tax 10%"):
@@ -27,5 +30,7 @@ func _process(delta):
 		$portrait/name.text=second_party.full_name
 		$portrait/eyes.frame=second_party.get_node("portrait/eyes").frame
 		$portrait/body.frame=second_party.get_node("portrait/body").frame
+		$evaluation.text=str(second_party.evaluate(section))
 	else:
+		$evaluation.text=str(0)
 		$portrait/name.text="No one selected."
