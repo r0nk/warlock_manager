@@ -4,11 +4,20 @@ var population = 100
 
 var food = 0
 
+var character_scene = preload("res://character.tscn")
+
+func spawn_character():
+	var c = character_scene.instantiate()
+	get_parent().add_child(c)
+#	print("Spawned character.");
+
 func feed():
 	food-=population/100
 	if(food>20):
 		food-=10
 		population+=1
+		if(randf()<0.1):
+			spawn_character()
 	if(food<-10): #starvation
 		population-1
 	if(food<-30): #canibalism

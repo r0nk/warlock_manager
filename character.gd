@@ -3,6 +3,8 @@ extends Node2D
 var income = 5
 var cash = 100
 
+var age = 20
+
 signal got_income
 
 var male_names= [
@@ -15,6 +17,9 @@ var male_names= [
 	"Calvor",
 	"Hendrick",
 	"Jhonny",
+	"Henry",
+	"Patrick",
+	"Theo",
 	]
 
 var female_names= [
@@ -64,13 +69,23 @@ func scavenge():
 	cash+=1+(randi()%income)
 	got_income.emit()
 
-
 func think():
 	var actions =[socialize,scavenge]
 	return actions.pick_random()
 
+#TODO move this out to a minos class
+func judgement():
+	$"../resources".souls+=1
+
+func die():
+	judgement()
+	queue_free()
+
 func turn():
 	think().call()
+	age+=1
+	if(age>50):
+		die()
 
 func open_viewer():
 	$"../character_viewer".target=$"."

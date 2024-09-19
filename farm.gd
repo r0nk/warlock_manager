@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var rate = 10
+@export var rate = 100
 @export var chance=5
 @export var max_turn_timer = 4
 var turn_timer=max_turn_timer
