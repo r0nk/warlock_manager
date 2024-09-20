@@ -6,9 +6,11 @@ var food = 0
 
 var character_scene = preload("res://character.tscn")
 
+@export var city_name = "Easterly"
+
 func spawn_character():
 	var c = character_scene.instantiate()
-	get_parent().add_child(c)
+	add_child(c)
 #	print("Spawned character.");
 
 func feed():
@@ -30,6 +32,14 @@ func turn():
 	$food_supply.text=str(food)
 	$population.text=str(population)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	turn()
+func organize_people():
+	var point = Vector2(100,0)
+	for child in get_children():
+		if child.is_in_group("person"):
+			child.position=point
+			point.y+=40
+
+
+func _process(delta):
+	$label.text=city_name
+	organize_people()

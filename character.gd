@@ -69,8 +69,15 @@ func scavenge():
 	cash+=1+(randi()%income)
 	got_income.emit()
 
+func travel():
+	var destination = get_tree().get_nodes_in_group("cities").pick_random()
+	var current
+	if($"../../roads".pathfind("current",destination)):
+		current=destination
+		reparent(destination)
+
 func think():
-	var actions =[socialize,scavenge]
+	var actions =[socialize,scavenge,travel]
 	return actions.pick_random()
 
 func evaluate(section: Section):
@@ -91,8 +98,8 @@ func turn():
 		die()
 
 func open_viewer():
-	$"../character_viewer".target=$"."
-	$"../character_viewer".visible=true
+	$"../../character_viewer".target=$"."
+	$"../../character_viewer".visible=true
 
 func _process(delta):
 	$cash.text=str(cash)
