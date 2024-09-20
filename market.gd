@@ -70,5 +70,5 @@ func _process(delta):
 	turn()
 
 func _ready():
-	add_order($"../farm","SELL","wheat",10,10,20)
+	add_order($"../building/farm","SELL","wheat",10,10,20)
 	add_order($".","BUY","wheat",20,10,20)

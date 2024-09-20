@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvt8glr7dey4d"]
+
+[ext_resource type="Script" path="res://building.gd" id="1_p24rr"]
+[ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_gn5v1"]
+[ext_resource type="Texture2D" uid="uid://bnuu2m8x1eyip" path="res://sprites/buildings.png" id="3_pww2l"]
+[ext_resource type="Script" path="res://farm.gd" id="4_b24fn"]
+
+[node name="building" type="Node2D" groups=["turnable"]]
+script = ExtResource("1_p24rr")
+
+[node name="label" type="Label" parent="."]
+offset_left = -41.0
+offset_top = 31.0
+offset_right = 37.0
+offset_bottom = 69.0
+theme = ExtResource("2_gn5v1")
+theme_override_font_sizes/font_size = 48
+text = "FARM"
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("3_pww2l")
+hframes = 5
+frame = 1
+
+[node name="farm" type="Node2D" parent="."]
+position = Vector2(29, -76)
+script = ExtResource("4_b24fn")

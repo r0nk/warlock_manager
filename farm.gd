@@ -14,7 +14,7 @@ func sell(amount):
 		print("ERROR: cannot sell over supply, canceling transaction")
 		return
 	#$"../market".sell("wheat",supply)
-	$"../".food+=amount
+	$"../../".food+=amount
 	supply-=amount
 
 func harvest():

@@ -27,7 +27,6 @@ func feed():
 		food+=3
 
 func turn():
-	$farm.turn()
 	feed()
 	$food_supply.text=str(food)
 	$population.text=str(population)
