@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://8y43q1xc6wt3"]
+
+[ext_resource type="Texture2D" uid="uid://bd3yhebye8s8w" path="res://sprites/army.png" id="1_h8vtq"]
+[ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_cfbyv"]
+
+[node name="army" type="Node2D"]
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_h8vtq")
+
+[node name="size_label" type="Label" parent="."]
+offset_left = -28.0
+offset_top = 33.0
+offset_right = 32.0
+offset_bottom = 65.0
+theme = ExtResource("2_cfbyv")
+text = "4500"
