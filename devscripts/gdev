@@ -1,0 +1,23 @@
+#!/usr/bin/env -S just --working-directory . --justfile
+
+scenes:
+	@find . -type f -name '*.tscn' | grep -v addons | fzf
+
+instant:
+	@scene=$(gdev scenes | sed "s/\.\///g;s/\.tscn//g"); echo "var $(echo $scene)_scene = preload(\"res://$scene.tscn\") \nvar $scene = $(echo $scene)_scene.instantiate()"
+
+script:
+	@find . -type f -name '*.gd'   | grep -v addons | fzf
+
+tree:
+	#!/usr/bin/env python3
+	from godot_parser import load
+
+	def print_children(node,path):
+	    for child in node._children:
+	        print_children(child,path+'/'+node.name)
+	    print((path+'/'+node.name))
+
+	scene = load("../overmap.tscn")
+	with scene.use_tree() as tree:
+	    print_children(tree.root,'')
