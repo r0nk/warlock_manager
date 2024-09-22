@@ -3,8 +3,10 @@ extends Node2D
 var speed = 5.0
 var f = "holtburg"
 var t = "tex"
-var traveling = true
+var traveling = false
 var t_progress=0.0
+
+var size=1000
 
 func travel(from,to):
 	f=from
@@ -12,6 +14,7 @@ func travel(from,to):
 	traveling=true
 
 func _process(delta):
+	$size_label.text=str(size)
 	if(traveling):
 		t_progress+=(delta*speed)/10
 		position=$"../roads".travel_location(f,t,t_progress)

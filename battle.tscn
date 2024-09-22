@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://0trbt5c2rw5g"]
+
+[ext_resource type="Texture2D" uid="uid://blfo6a3opyw3e" path="res://sprites/battle_icon.png" id="1_3ena6"]
+[ext_resource type="Script" path="res://animate_icon.gd" id="2_yaige"]
+
+[node name="battle" type="Node2D"]
+position = Vector2(9, -81)
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(194, 568)
+scale = Vector2(2, 2)
+texture = ExtResource("1_3ena6")
+hframes = 4
+script = ExtResource("2_yaige")
+rate = 8.0
