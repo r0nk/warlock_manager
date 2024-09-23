@@ -6,6 +6,8 @@ var food = 0
 
 var character_scene = preload("res://character.tscn")
 
+@export var mayor:Node
+
 @export var city_name = "Easterly"
 
 func spawn_character():
@@ -26,13 +28,19 @@ func feed():
 		population-1
 		food+=3
 
+func tax():
+	if(mayor):
+#		print("Paying taxes of 1 to ",mayor.full_name)
+		mayor.cash+=1
+
 func turn():
+	tax() #always tax before anything else, this is the government we're talking about here.
 	feed()
 	$food_supply.text=str(food)
 	$population.text=str(population)
 
 func organize_people():
-	var point = Vector2(100,0)
+	var point = Vector2(100,100)
 	for child in get_children():
 		if child.is_in_group("person"):
 			child.position=point

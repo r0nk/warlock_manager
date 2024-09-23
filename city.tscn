@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://st3d6fnc3bx"]
+[gd_scene load_steps=8 format=3 uid="uid://st3d6fnc3bx"]
 
 [ext_resource type="Script" path="res://city.gd" id="1_qaxin"]
 [ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_see58"]
@@ -6,37 +6,39 @@
 [ext_resource type="Script" path="res://market.gd" id="5_ehh74"]
 [ext_resource type="PackedScene" uid="uid://bq8sjdhsjot1j" path="res://inventory.tscn" id="6_upkan"]
 [ext_resource type="PackedScene" uid="uid://dvt8glr7dey4d" path="res://building.tscn" id="7_k1gnt"]
+[ext_resource type="Texture2D" uid="uid://d3cwurlj7bpdw" path="res://sprites/center.png" id="7_mbe6v"]
 
 [node name="city" type="Node2D" groups=["cities", "turnable"]]
 script = ExtResource("1_qaxin")
 
 [node name="label" type="RichTextLabel" parent="."]
-offset_left = -51.0
-offset_top = 92.0
-offset_right = 69.0
-offset_bottom = 132.0
+offset_left = -55.0
+offset_top = 64.0
+offset_right = 65.0
+offset_bottom = 104.0
 theme = ExtResource("2_see58")
 text = "holtburg"
 
 [node name="food_supply" type="RichTextLabel" parent="."]
-offset_left = 79.0
-offset_top = -128.0
-offset_right = 199.0
-offset_bottom = -88.0
+offset_left = 29.0
+offset_top = -105.0
+offset_right = 149.0
+offset_bottom = -65.0
 theme = ExtResource("2_see58")
 theme_override_colors/default_color = Color(0, 1, 0, 1)
 text = "500"
 
 [node name="population" type="RichTextLabel" parent="."]
-offset_left = 79.0
-offset_top = -108.0
-offset_right = 199.0
-offset_bottom = -68.0
+offset_left = 29.0
+offset_top = -85.0
+offset_right = 149.0
+offset_bottom = -45.0
 theme = ExtResource("2_see58")
 theme_override_colors/default_color = Color(0, 0, 0.937255, 1)
 text = "500"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(-227, -164)
 color = Color(0, 1, 1, 1)
 polygon = PackedVector2Array(168, 160, 232, 240, 288, 168, 216, 88)
@@ -57,3 +59,8 @@ position = Vector2(90, 1)
 
 [node name="building2" parent="." instance=ExtResource("7_k1gnt")]
 position = Vector2(-91, 4)
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(3, -2)
+scale = Vector2(4, 4)
+texture = ExtResource("7_mbe6v")

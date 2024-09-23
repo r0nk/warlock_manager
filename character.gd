@@ -4,7 +4,6 @@ var income = 5
 var cash = 100
 
 var age = 20
-
 signal got_income
 
 var male_names= [
@@ -76,8 +75,13 @@ func travel():
 		current=destination
 		reparent(destination)
 
+func claim_local_city():
+	if(get_parent().mayor==null):
+		get_parent().mayor=$"."
+	print(full_name," Claimed the city of ",get_parent().city_name)
+
 func think():
-	var actions =[socialize,scavenge,travel]
+	var actions =[socialize,scavenge,travel,claim_local_city]
 	return actions.pick_random()
 
 func evaluate(section: Section):

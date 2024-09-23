@@ -1,16 +1,16 @@
+v0.2/war/titles	60	0001-01-01T00:00+00:00	2024-09-23T17:10-05:00
+v0.2/war/combat	60	0001-01-01T00:00+00:00	2024-09-23T16:23-05:00
+v0.2/war/armies	60	0001-01-01T00:00+00:00	2024-09-23T16:22-05:00
 v0.2/world/citites/buildings	60	0001-01-01T00:00+00:00	2024-09-19T21:29-05:00
 v0.2/world/road	60	0001-01-01T00:00+00:00	2024-09-19T20:18-05:00
 character/contract_evaulation	60	0001-01-01T00:00+00:00	2024-09-19T03:09-05:00
 character/death	60	0001-01-01T00:00+00:00	2024-09-19T02:34-05:00
 character/spawning	60	0001-01-01T00:00+00:00	2024-09-19T02:22-05:00
 contract/implementation	60	0001-01-01T00:00+00:00	2024-09-19T01:58-05:00
-contract/invitation	60	0001-01-01T00:00+00:00	2024-09-19T01:58-05:00
 social/networks	60	0001-01-01T00:00+00:00	2024-09-19T01:58-05:00
-v0.2/patrons	60
-v0.2/world/citites	60
-v0.2/war/titles	60
-v0.2/world/gen	60
-v0.2/war/armies	60
-v0.2/war/claims	60
-v0.2/war/combat	60
+contract/invitation	60	0001-01-01T00:00+00:00	2024-09-19T01:58-05:00
 v0.2/world/citites/centers	60
+v0.2/war/claims	60
+v0.2/world/gen	60
+v0.2/world/citites	60
+v0.2/patrons	60

@@ -19,6 +19,7 @@ func _process(_delta):
 	$portrait/eyes.frame=target.get_node("portrait/eyes").frame
 	$portrait/body.frame=target.get_node("portrait/body").frame
 	$panel/feelings_label.text=""
+	$panel/cash_label.text="$ "+str(target.cash)
 	for key in target.get_node("emotions").relationships.keys():
 		var feeling = target.get_node("emotions").relationships[key]
 		$panel/feelings_label.text+=key+"    "
