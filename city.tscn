@@ -14,7 +14,7 @@ script = ExtResource("1_qaxin")
 [node name="label" type="RichTextLabel" parent="."]
 offset_left = -55.0
 offset_top = 64.0
-offset_right = 65.0
+offset_right = 129.0
 offset_bottom = 104.0
 theme = ExtResource("2_see58")
 text = "holtburg"

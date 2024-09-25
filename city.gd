@@ -6,6 +6,11 @@ var food = 0
 
 var character_scene = preload("res://character.tscn")
 
+var possible_names = ["Tex","Holt","Elder","Ash","Ashen","Charm","Voo","Doo","Twilight","Moon","Sol","Rex","Murf","Win","Lock","Bolt","Key","Hex","Prax","Alt","Lys","Nel","Atlas"]
+
+#how tf do you spell this
+var suffixes = ["ville","burg","istan","borough","port","wick","chester","by","stead"]
+
 @export var mayor:Node
 
 @export var city_name = "Easterly"
@@ -46,7 +51,10 @@ func organize_people():
 			child.position=point
 			point.y+=40
 
-
 func _process(delta):
 	$label.text=city_name
 	organize_people()
+
+func _ready():
+	city_name = possible_names.pick_random()+suffixes.pick_random()
+	name=city_name
