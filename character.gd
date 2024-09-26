@@ -48,6 +48,8 @@ var last_names= [
 
 var full_name = ""
 
+var claim: Node
+
 func generate_character():
 	full_name=male_names.pick_random()+" "+last_names.pick_random()
 	$portrait/eyes.frame=randi()%$portrait/eyes.hframes
@@ -78,6 +80,7 @@ func travel():
 func claim_local_city():
 	if(get_parent().mayor==null):
 		get_parent().mayor=$"."
+	claim=get_parent()
 	print(full_name," Claimed the city of ",get_parent().city_name)
 
 func think():
@@ -102,8 +105,8 @@ func turn():
 		die()
 
 func open_viewer():
-	$"../../character_viewer".target=$"."
-	$"../../character_viewer".visible=true
+	$"../../camera/container/HUD/character_viewer".target=$"."
+	$"../../camera/container/HUD/character_viewer".visible=true
 
 func _process(delta):
 	$cash.text=str(cash)

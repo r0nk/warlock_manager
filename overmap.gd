@@ -37,11 +37,11 @@ func world_gen():
 		city.position.y=rng.randi_range(0,1500)
 		add_child(city)
 
-	for i in 300:
+	for i in 100:
 		push_pull(500)
 
 	for c in get_tree().get_nodes_in_group("cities"):
-		for near in get_cities_near(c,400):
+		for near in get_cities_near(c,500):
 			$roads.anew(c.city_name,near.city_name)
 	$roads.add_lines_from_graph()
 
