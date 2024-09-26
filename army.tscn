@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://8y43q1xc6wt3"]
+[gd_scene load_steps=4 format=3 uid="uid://8y43q1xc6wt3"]
 
 [ext_resource type="Texture2D" uid="uid://bd3yhebye8s8w" path="res://sprites/army.png" id="1_h8vtq"]
+[ext_resource type="Script" path="res://army.gd" id="1_qtmgu"]
 [ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_cfbyv"]
 
 [node name="army" type="Node2D"]
+script = ExtResource("1_qtmgu")
 
 [node name="sprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)

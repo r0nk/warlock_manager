@@ -6,6 +6,8 @@ var cash = 100
 var age = 20
 signal got_income
 
+var army_scene = preload("res://army.tscn")
+
 var male_names= [
 	"Marcus",
 	"David",
@@ -83,8 +85,15 @@ func claim_local_city():
 	claim=get_parent()
 	print(full_name," Claimed the city of ",get_parent().city_name)
 
+func recruit():
+	if(not $army):
+		var army = army_scene.instantiate()
+		army.size=0
+		add_child(army)
+	$army.size+=randi()%10
+
 func think():
-	var actions =[socialize,scavenge,travel,claim_local_city]
+	var actions =[socialize,scavenge,travel,claim_local_city,recruit]
 	return actions.pick_random()
 
 func evaluate(section: Section):
