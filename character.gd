@@ -101,7 +101,7 @@ func evaluate(section: Section):
 
 #TODO move this out to a minos class
 func judgement():
-	$"../../resources".souls+=1
+	$"../../patron".souls+=1
 
 func die():
 	judgement()
