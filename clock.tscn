@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://5rnmlil734el"]
+
+[ext_resource type="Script" path="res://clock.gd" id="1_gnoa4"]
+
+[node name="clock" type="Node2D"]
+script = ExtResource("1_gnoa4")
+
+[node name="pause_button" type="Button" parent="."]
+offset_right = 87.0
+offset_bottom = 31.0
+text = "Pause"
+
+[node name="turn_label" type="RichTextLabel" parent="."]
+offset_left = 91.0
+offset_right = 193.0
+offset_bottom = 40.0
+text = "Turn: 0"
+
+[connection signal="pressed" from="pause_button" to="." method="toggle_pause"]

@@ -114,7 +114,18 @@ func think():
 	return actions.pick_random()
 
 func evaluate(section: Section):
-	return randi()%100 - 50
+	var r = 0
+	match section.effect:
+		"tax 10%":
+			r=-1
+		"Pay 10":
+			r=1
+	match section.trigger:
+		"income":
+			r*=0.5
+		"Every Turn":
+			r*=1
+	return r
 
 #TODO move this out to a minos class
 func judgement():

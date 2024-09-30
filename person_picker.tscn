@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsmfo5eqrdpfm"]
+
+[ext_resource type="Script" path="res://person_picker.gd" id="1_gpl2h"]
+[ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_qv3tt"]
+
+[node name="person_picker" type="Node2D"]
+visible = false
+script = ExtResource("1_gpl2h")
+
+[node name="list" type="ItemList" parent="."]
+top_level = true
+z_index = 10
+offset_left = 70.0
+offset_top = 74.0
+offset_right = 544.0
+offset_bottom = 357.0
+theme = ExtResource("2_qv3tt")
+item_count = 1

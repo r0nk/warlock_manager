@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ftw261kfofj"]
+
+[ext_resource type="Script" path="res://resources.gd" id="1_rfpxd"]
+
+[node name="resources" type="Node2D"]
+script = ExtResource("1_rfpxd")
+
+[node name="panel" type="Panel" parent="."]
+offset_left = 262.0
+offset_top = 2.0
+offset_right = 637.0
+offset_bottom = 42.0
+
+[node name="cash" type="RichTextLabel" parent="panel"]
+layout_mode = 0
+offset_right = 372.0
+offset_bottom = 40.0
+text = "$ 0"

@@ -16,5 +16,3 @@ func turn():
 func victory():
 	print("battle won!");
 	queue_free()
-
-
