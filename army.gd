@@ -6,7 +6,7 @@ var t = "tex"
 var traveling = false
 var t_progress=0.0
 
-var size=1000
+@export var size=1000
 
 func travel(from,to):
 	f=from

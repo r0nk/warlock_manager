@@ -8,6 +8,8 @@ signal got_income
 
 var army_scene = preload("res://army.tscn")
 
+var battle_scene = preload("res://battle.tscn") 
+
 var male_names= [
 	"Marcus",
 	"David",
@@ -80,10 +82,25 @@ func travel():
 		reparent(destination)
 
 func claim_local_city():
-	if(get_parent().mayor==null):
+	if(get_parent().mayor==null or $"../garrison".size < 5):
 		get_parent().mayor=$"."
 	claim=get_parent()
 	print(full_name," Claimed the city of ",get_parent().city_name)
+
+func attack():
+	if(not $army):
+		print("cannot attack without an army");
+		return
+
+	#TODO pick a target
+	var target = $"../garrison"
+	#spawn a battle
+	var battle = battle_scene.instantiate()
+	battle.a=$army
+	battle.b=target
+	battle.position=position
+	add_sibling(battle)
+	print($".".name," is attacking the city of ",target.name);
 
 func recruit():
 	if(not $army):
@@ -93,7 +110,7 @@ func recruit():
 	$army.size+=randi()%10
 
 func think():
-	var actions =[socialize,scavenge,travel,claim_local_city,recruit]
+	var actions =[socialize,scavenge,travel,claim_local_city,recruit,attack]
 	return actions.pick_random()
 
 func evaluate(section: Section):

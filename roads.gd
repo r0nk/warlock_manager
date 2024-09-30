@@ -65,7 +65,6 @@ func min_key(dictionary,unv):
 
 #TODO a* or whatever from one city to another
 func pathfind(start,end):
-	print("pathfinding ",start, " to ", end);
 
 	var unvisited = []
 	for city in get_tree().get_nodes_in_group("cities"):
@@ -84,7 +83,6 @@ func pathfind(start,end):
 		unvisited.erase(current)
 
 		for n in neighbors_in_set(current,unvisited):
-			print(n)
 			var nd = dist[current] + 1
 			if nd < dist[n]:
 				dist[n] = nd
@@ -96,7 +94,6 @@ func pathfind(start,end):
 	while p != start:
 		path.append(p)
 		p=prev[p]
-	print(start,end," path: ",path)
 	return path
 
 func travel_location(from,to,percent):

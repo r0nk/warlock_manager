@@ -25,6 +25,8 @@ func feed():
 	if(food>20):
 		food-=10
 		population+=1
+		if(randf()<0.3):
+			$garrison.size+=1
 		if(randf()<0.1):
 			spawn_character()
 	if(food<-10): #starvation

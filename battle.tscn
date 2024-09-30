@@ -4,15 +4,13 @@
 [ext_resource type="Script" path="res://battle.gd" id="1_30jrw"]
 [ext_resource type="Script" path="res://animate_icon.gd" id="2_yaige"]
 
-[node name="battle" type="Node2D"]
-position = Vector2(9, -81)
+[node name="battle" type="Node2D" groups=["turnable"]]
 script = ExtResource("1_30jrw")
 
 [node name="icon" type="Sprite2D" parent="."]
-position = Vector2(194, 568)
 scale = Vector2(2, 2)
 texture = ExtResource("1_3ena6")
 hframes = 4
-frame = 2
+frame = 1
 script = ExtResource("2_yaige")
 rate = 8.0

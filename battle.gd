@@ -1,11 +1,9 @@
 extends Node2D
 
-@export var A:NodePath
-@export var B:NodePath
+@export var a:Node
+@export var b:Node
 
 func turn():
-	var a = get_node(A)
-	var b = get_node(B)
 	a.size-=(b.size/100)*(randi()%10)
 	b.size-=(a.size/100)*(randi()%10)
 	if(a.size<=0):

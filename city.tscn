@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://st3d6fnc3bx"]
+[gd_scene load_steps=9 format=3 uid="uid://st3d6fnc3bx"]
 
 [ext_resource type="Script" path="res://city.gd" id="1_qaxin"]
 [ext_resource type="Theme" uid="uid://bgocuhsiloe7c" path="res://theme.tres" id="2_see58"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bq8sjdhsjot1j" path="res://inventory.tscn" id="6_upkan"]
 [ext_resource type="PackedScene" uid="uid://dvt8glr7dey4d" path="res://building.tscn" id="7_k1gnt"]
 [ext_resource type="Texture2D" uid="uid://d3cwurlj7bpdw" path="res://sprites/center.png" id="7_mbe6v"]
+[ext_resource type="PackedScene" uid="uid://8y43q1xc6wt3" path="res://army.tscn" id="8_se3qu"]
 
 [node name="city" type="Node2D" groups=["cities", "turnable"]]
 script = ExtResource("1_qaxin")
@@ -64,3 +65,7 @@ position = Vector2(-91, 4)
 position = Vector2(3, -2)
 scale = Vector2(4, 4)
 texture = ExtResource("7_mbe6v")
+
+[node name="garrison" parent="." instance=ExtResource("8_se3qu")]
+position = Vector2(2, -2)
+size = 100
