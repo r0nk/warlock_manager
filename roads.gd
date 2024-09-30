@@ -34,9 +34,70 @@ func anew(from,to):
 	if(!direct_connection(from,to)):
 		graph.append([from,to])
 
+func neighbors(of):
+	var ret = []
+	for edge in graph:
+		if(edge[0]==of):
+			ret.append(edge[1])
+		if(edge[1]==of):
+			ret.append(edge[0])
+	return ret
+
+func neighbors_in_set(of,set):
+	var ret = []
+	for edge in graph:
+		if(edge[0]==of and set.has(edge[1])):
+			ret.append(edge[1])
+		if(edge[1]==of and set.has(edge[0])):
+			ret.append(edge[0])
+	return ret
+
+
+func min_key(dictionary,unv):
+	var key = ""
+	var min = 99999
+	for k in dictionary.keys():
+		if(dictionary[k]<min and unv.has(k)):
+			key=k
+			min=dictionary[k]
+	return key
+
+
 #TODO a* or whatever from one city to another
-func pathfind(from,to):
-	return true
+func pathfind(start,end):
+	print("pathfinding ",start, " to ", end);
+
+	var unvisited = []
+	for city in get_tree().get_nodes_in_group("cities"):
+		unvisited.append(city.city_name)
+
+	#distance from start
+	var dist = {start:0}
+	var prev = {start:start}
+	for city in unvisited:
+		dist[city]=9999
+	dist[start]=0
+
+	var current
+	while not unvisited.is_empty():
+		current=(min_key(dist,unvisited))
+		unvisited.erase(current)
+
+		for n in neighbors_in_set(current,unvisited):
+			print(n)
+			var nd = dist[current] + 1
+			if nd < dist[n]:
+				dist[n] = nd
+				prev[n]=current
+
+
+	var path = [end]
+	var p = prev[end]
+	while p != start:
+		path.append(p)
+		p=prev[p]
+	print(start,end," path: ",path)
+	return path
 
 func travel_location(from,to,percent):
 	if(! get_node("../"+from) or  ! get_node("../"+to)):

@@ -2,11 +2,11 @@ extends Node2D
 
 var population = 100
 
-var food = 0
+var food = 10
 
 var character_scene = preload("res://character.tscn")
 
-var possible_names = ["Tex","Holt","Elder","Ash","Ashen","Charm","Voo","Doo","Twilight","Moon","Sol","Rex","Murf","Win","Lock","Bolt","Key","Hex","Prax","Alt","Lys","Nel","Atlas"]
+var possible_names = ["Tex","Holt","Elder","Ash","Ashen","Charm","Voo","Doo","Twilight","Moon","Sol","Rex","Murf","Win","Lock","Bolt","Key","Hex","Prax","Alt","Lys","Nel","Atlas","Hox","Twist","Knarl","Branch","Edge","Wand","Lumen","Depth"]
 
 #how tf do you spell this
 var suffixes = ["ville","burg","istan","borough","port","wick","chester","by","stead"]

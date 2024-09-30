@@ -3,7 +3,7 @@ extends Node2D
 var target
 
 func _ready():
-	target = get_node("../alice")
+	pass
 
 func contract_button_pressed():
 	visible=false

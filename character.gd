@@ -75,7 +75,7 @@ func scavenge():
 func travel():
 	var destination = get_tree().get_nodes_in_group("cities").pick_random()
 	var current
-	if($"../../roads".pathfind("current",destination)):
+	if($"../../roads".pathfind(get_parent().name,destination.name)):
 		current=destination
 		reparent(destination)
 
