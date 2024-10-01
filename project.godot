@@ -30,6 +30,7 @@ naming/default_signal_callback_to_self_name="{signal_name}"
 turnable=""
 person=""
 cities=""
+vos=""
 
 [input]
 

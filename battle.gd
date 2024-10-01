@@ -4,6 +4,9 @@ extends Node2D
 @export var b:Node
 
 func turn():
+	if(!a or !b):
+		victory()
+		return
 	a.size-=(b.size/100)*(randi()%10)
 	b.size-=(a.size/100)*(randi()%10)
 	if(a.size<=0):

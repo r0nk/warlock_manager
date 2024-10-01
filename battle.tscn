@@ -11,6 +11,6 @@ script = ExtResource("1_30jrw")
 scale = Vector2(2, 2)
 texture = ExtResource("1_3ena6")
 hframes = 4
-frame = 1
+frame = 3
 script = ExtResource("2_yaige")
 rate = 8.0

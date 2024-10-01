@@ -2,7 +2,7 @@ extends Node2D
 
 var population = 100
 
-var food = 10
+var food = 500
 
 var character_scene = preload("res://character.tscn")
 
@@ -14,6 +14,15 @@ var suffixes = ["ville","burg","istan","borough","port","wick","chester","by","s
 @export var mayor:Node
 
 @export var city_name = "Easterly"
+
+var selected=false
+
+func on_selected():
+	selected=!selected
+	for child in get_children():
+		if child.is_in_group("vos"):
+			child.visible=selected
+
 
 func spawn_character():
 	var c = character_scene.instantiate()
@@ -43,8 +52,8 @@ func tax():
 func turn():
 	tax() #always tax before anything else, this is the government we're talking about here.
 	feed()
-	$food_supply.text=str(food)
-	$population.text=str(population)
+	$food_supply.text="food: "+str(food)
+	$population.text="Population: "+str(population)
 
 func organize_people():
 	var point = Vector2(100,100)
@@ -58,5 +67,8 @@ func _process(delta):
 	organize_people()
 
 func _ready():
+	for child in get_children():
+		if child.is_in_group("vos"):
+			child.visible=selected
 	city_name = possible_names.pick_random()+suffixes.pick_random()
 	name=city_name

@@ -52,4 +52,5 @@ position = Vector2(6, 100)
 texture = ExtResource("2_q6dh2")
 
 [node name="roads" type="Node2D" parent="."]
+modulate = Color(0.766538, 0.408924, 0.261625, 1)
 script = ExtResource("13_2um8w")
