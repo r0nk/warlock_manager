@@ -10,7 +10,6 @@ func contract_button_pressed():
 	%typewriter.second_party=target
 	%typewriter.visible=true
 
-
 func _process(_delta):
 	if !target:
 		visible=false

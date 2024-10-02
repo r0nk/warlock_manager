@@ -23,14 +23,17 @@ func enact():
 	visible=false
 
 func _process(delta):
-	section.trigger = $trigger.text
-	section.effect = $effect.text
+	section.trigger = $panel/trigger.text
+	section.effect = $panel/effect.text
 
 	if (second_party):
-		$portrait/name.text=second_party.full_name
-		$portrait/eyes.frame=second_party.get_node("portrait/eyes").frame
-		$portrait/body.frame=second_party.get_node("portrait/body").frame
-		$evaluation.text=str(second_party.evaluate(section))
+		$panel/portrait/name.text=second_party.full_name
+		$panel/portrait/eyes.frame=second_party.get_node("portrait/eyes").frame
+		$panel/portrait/body.frame=second_party.get_node("portrait/body").frame
+		$panel/evaluation.text=str(second_party.evaluate(section))
 	else:
-		$evaluation.text=str(0)
-		$portrait/name.text="No one selected."
+		$panel/evaluation.text=str(0)
+		$panel/portrait/name.text="No one selected."
+
+func _ready():
+	visible=false

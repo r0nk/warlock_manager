@@ -11,6 +11,7 @@
 
 [node name="city" type="Node2D" groups=["cities", "turnable"]]
 script = ExtResource("1_qaxin")
+city_name = null
 
 [node name="selection" type="Button" parent="."]
 offset_left = -44.0

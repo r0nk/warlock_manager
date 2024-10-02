@@ -23,7 +23,6 @@ func on_selected():
 		if child.is_in_group("vos"):
 			child.visible=selected
 
-
 func spawn_character():
 	var c = character_scene.instantiate()
 	add_child(c)
@@ -45,7 +44,7 @@ func feed():
 		food+=3
 
 func tax():
-	if(mayor):
+	if(is_instance_valid(mayor)):
 #		print("Paying taxes of 1 to ",mayor.full_name)
 		mayor.cash+=1
 
@@ -66,9 +65,16 @@ func _process(delta):
 	$label.text=city_name
 	organize_people()
 
+func name_city():
+	var cn = possible_names.pick_random()+suffixes.pick_random()
+	for city in get_tree().get_nodes_in_group("citites"):
+		if(cn == city.city_name):
+			cn = "New "+cn
+	city_name = cn
+	name=city_name
+
 func _ready():
 	for child in get_children():
 		if child.is_in_group("vos"):
 			child.visible=selected
-	city_name = possible_names.pick_random()+suffixes.pick_random()
-	name=city_name
+	name_city()

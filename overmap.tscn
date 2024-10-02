@@ -20,6 +20,7 @@ script = ExtResource("2_065yq")
 
 [node name="container" type="SubViewportContainer" parent="camera"]
 z_index = 100
+custom_minimum_size = Vector2(1280, 720)
 offset_left = -639.0
 offset_top = -364.0
 offset_right = 643.0
@@ -28,6 +29,7 @@ offset_bottom = 360.0
 [node name="HUD" type="SubViewport" parent="camera/container"]
 transparent_bg = true
 handle_input_locally = false
+size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="resources" parent="camera/container/HUD" instance=ExtResource("3_wyxbd")]
@@ -36,10 +38,13 @@ unique_name_in_owner = true
 [node name="clock" parent="camera/container/HUD" instance=ExtResource("4_nhhvi")]
 unique_name_in_owner = true
 
+[node name="character_viewer" parent="camera/container/HUD" instance=ExtResource("6_gaka3")]
+visible = false
+
 [node name="typewriter" parent="camera/container/HUD" instance=ExtResource("5_33788")]
 unique_name_in_owner = true
-
-[node name="character_viewer" parent="camera/container/HUD" instance=ExtResource("6_gaka3")]
+visible = false
+z_index = 10
 
 [node name="person_picker" parent="camera/container/HUD" instance=ExtResource("7_lnm4s")]
 

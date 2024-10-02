@@ -103,5 +103,3 @@ func travel_location(from,to,percent):
 	var t=get_node("../"+to).position
 	var m = (t-f)*percent
 	return f+m
-
-
