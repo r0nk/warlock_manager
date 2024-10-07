@@ -47,6 +47,9 @@ func tax():
 	if(is_instance_valid(mayor)):
 #		print("Paying taxes of 1 to ",mayor.full_name)
 		mayor.cash+=1
+	else:
+		$flag.color="gray"
+		mayor=null
 
 func turn():
 	tax() #always tax before anything else, this is the government we're talking about here.
@@ -78,3 +81,4 @@ func _ready():
 		if child.is_in_group("vos"):
 			child.visible=selected
 	name_city()
+	$flag.color="gray"

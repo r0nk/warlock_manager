@@ -8,7 +8,11 @@ signal got_income
 
 var army_scene = preload("res://army.tscn")
 
-var battle_scene = preload("res://battle.tscn") 
+var battle_scene = preload("res://battle.tscn")
+
+var liege: Node
+
+var flag_color = Color(randf(), randf(), randf())
 
 var male_names= [
 	"Marcus",
@@ -24,7 +28,6 @@ var male_names= [
 	"Patrick",
 	"Theo",
 	]
-
 var female_names= [
 	"Lenore",
 	"Rhiannon",
@@ -74,6 +77,12 @@ func scavenge():
 	cash+=1+(randi()%income)
 	got_income.emit()
 
+func liege_share():
+	if(is_instance_valid(liege)):
+		if(cash>0):
+			liege.cash+=1
+			cash-=1
+
 func travel():
 	var destination = get_tree().get_nodes_in_group("cities").pick_random()
 	var current
@@ -84,6 +93,9 @@ func travel():
 func claim_local_city():
 	if(get_parent().mayor==null or $"../garrison".size < 5):
 		get_parent().mayor=$"."
+		$"../flag".color=flag_color
+		if(is_instance_valid(liege)):
+			$"../flag".color=liege.flag_color
 	claim=get_parent()
 	print(full_name," Claimed the city of ",get_parent().city_name)
 

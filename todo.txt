@@ -1,3 +1,4 @@
+factions/colors	60	0001-01-01T00:00+00:00	2024-10-07T16:53-05:00
 v0.2.1/contract_evaluator/effects	60	0001-01-01T00:00+00:00	2024-09-30T12:02-05:00
 v0.2.1/conquest	60	0001-01-01T00:00+00:00	2024-09-29T22:59-05:00
 v0.2.1/battles_on_contact	60	0001-01-01T00:00+00:00	2024-09-29T22:59-05:00
@@ -18,5 +19,13 @@ character/contract_evaulation	60	0001-01-01T00:00+00:00	2024-09-19T03:09-05:00
 character/death	60	0001-01-01T00:00+00:00	2024-09-19T02:34-05:00
 character/spawning	60	0001-01-01T00:00+00:00	2024-09-19T02:22-05:00
 contract/invitation	60	0001-01-01T00:00+00:00	2024-09-19T01:58-05:00
-social/networks	60	0001-01-01T00:00+00:00	2024-09-19T01:58-05:00
 contract/implementation	60	0001-01-01T00:00+00:00	2024-09-19T01:58-05:00
+social/networks	60	0001-01-01T00:00+00:00	2024-09-19T01:58-05:00
+game_feel/basic	60
+contract/icon	15
+sfx	60
+ai/contract_change	60
+ai/foundational	60
+tutorial	60
+contract/location_control	60
+factions/recruitment	60

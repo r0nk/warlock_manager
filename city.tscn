@@ -11,7 +11,6 @@
 
 [node name="city" type="Node2D" groups=["cities", "turnable"]]
 script = ExtResource("1_qaxin")
-city_name = null
 
 [node name="selection" type="Button" parent="."]
 offset_left = -44.0
@@ -45,11 +44,11 @@ theme = ExtResource("2_see58")
 theme_override_colors/default_color = Color(0, 0, 0.937255, 1)
 text = "500"
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="flag" type="Polygon2D" parent="."]
 position = Vector2(-163.6, -104.158)
 scale = Vector2(0.741667, 0.638158)
 color = Color(0.0238812, 0.343887, 0.578039, 1)
-polygon = PackedVector2Array(168, 160, 232, 240, 288, 168, 216, 88)
+polygon = PackedVector2Array(165.303, 240, 289.348, 240, 292.045, 88.0001, 170.697, 88.0001)
 
 [node name="government" type="Node2D" parent="."]
 position = Vector2(29, -76)
